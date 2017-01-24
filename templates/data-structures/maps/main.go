@@ -14,11 +14,11 @@ func init() {
 
 func main() {
 	superheroes := map[string]string{
-		"Geek":                  "Spider-man",
-		"Cool Billionaire":      "Batman",
-		"Alien":                 "Superman",
-		"Amazonian":             "Wonder Woman",
-		"Less Cool Billionaire": "Iron Man",
+		"Peter Parker": "Spider-man",
+		"Bruce Wayne":  "Batman",
+		"Clark Kent":   "Superman",
+		"Diana Prince": "Wonder Woman",
+		"Tony Stark":   "Iron Man",
 	}
 
 	err := tpl.Execute(os.Stdout, superheroes)
