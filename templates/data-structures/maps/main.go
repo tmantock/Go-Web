@@ -14,9 +14,10 @@ func init() {
 
 func main() {
 	superheroes := map[string]string{
-		"Geek":             "Spider-man",
-		"Cool Billionaire": "Batman",
-		"Alien":            "Superman", "Amzonian": "Wonder Woman",
+		"Geek":                  "Spider-man",
+		"Cool Billionaire":      "Batman",
+		"Alien":                 "Superman",
+		"Amazonian":             "Wonder Woman",
 		"Less Cool Billionaire": "Iron Man",
 	}
 
