@@ -19,11 +19,6 @@ type car struct {
 	Doors        int
 }
 
-type items struct {
-	Heroes    []hero
-	Transport []car
-}
-
 func init() {
 	tpl = template.Must(template.ParseFiles("tpl.gohtml"))
 }
@@ -81,7 +76,10 @@ func main() {
 	superheroes := []hero{batman, spiderman, ironMan, wonderWoman, hulk}
 	cars := []car{accord, civic, modelx, miata}
 
-	data := items{
+	data := struct {
+		Heroes    []hero
+		Transport []car
+	}{
 		Heroes:    superheroes,
 		Transport: cars,
 	}
