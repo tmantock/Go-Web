@@ -41,12 +41,17 @@ func handle(conn net.Conn) {
 	for scanner.Scan() {
 		ln := scanner.Text()
 		fs := strings.Fields(ln)
+		fs[0] = strings.ToUpper(fs[0])
 		//logic
 		switch fs[0] {
 		case "GET":
 			k := fs[1]
 			v := data[k]
-			fmt.Fprintf(conn, "%s\n", v)
+			if v != "" {
+				fmt.Fprintf(conn, "%s\n", v)
+			} else {
+				fmt.Fprintln(conn, "NOT FOUND")
+			}
 		case "SET":
 			if len(fs) != 3 {
 				fmt.Fprintln(conn, "EXPECTED VALUE")
