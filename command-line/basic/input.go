@@ -15,6 +15,11 @@ func main() {
 			return
 		}
 
+		if guessColor == "exit" {
+			fmt.Println("Exiting Program")
+			return
+		}
+
 		if favColor == guessColor {
 			fmt.Printf("%q is my favorite color!\n", favColor)
 			return
