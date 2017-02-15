@@ -10,9 +10,25 @@ import (
 )
 
 func main() {
+	var cmd string
+
+	flag.StringVar(&cmd, "fn", "prime", "Specify a function. Default is Prime. (Is number prime)")
+	flag.Usage = func() {
+		fmt.Printf("Usage of %s:\n", os.Args[0])
+		fmt.Printf("%s [number]\n", os.Args[0])
+		flag.PrintDefaults()
+	}
+
 	flag.Parse()
-	fn := strings.ToUpper(flag.Arg(0))
-	nm, _ := strconv.Atoi(flag.Arg(1))
+
+	if flag.NArg() == 0 {
+		flag.Usage()
+		os.Exit(0)
+	}
+
+	fn := strings.ToUpper(cmd)
+	fmt.Println(fn)
+	nm, _ := strconv.Atoi(flag.Arg(0))
 
 	switch fn {
 	case "LIST":
@@ -26,6 +42,8 @@ func main() {
 		fmt.Println(result)
 	default:
 		fmt.Println("Invalid Command")
+		flag.Usage()
+		os.Exit(0)
 	}
 
 	os.Exit(0)
@@ -49,8 +67,9 @@ func isPrime(num int) bool {
 
 func primesList(limit int) []int {
 	var primes []int
+	var prime bool
 	for i := 0; i <= limit; i++ {
-		prime := true
+		prime = true
 
 		if i < 2 {
 			continue
@@ -58,9 +77,10 @@ func primesList(limit int) []int {
 
 		sqrt := int(math.Floor(math.Sqrt(float64(i))))
 
-		for x := 2; x < sqrt; x++ {
+		for x := 2; x <= sqrt; x++ {
 			if i%x == 0 {
 				prime = false
+				break
 			}
 		}
 
