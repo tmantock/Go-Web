@@ -1,7 +1,8 @@
 #Go-Prime
 
 ###Install
-1. Download the repository and use either `go build` or `go install` if you have a binary folder setup for go programs
+1. Download the repository 
+2. Use either `go build` or `go install`, if you have a binary folder setup for go programs, to generate an executable binary
 
 A program all abut prime numbers
 
