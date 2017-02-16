@@ -27,7 +27,6 @@ func main() {
 	}
 
 	fn := strings.ToUpper(cmd)
-	fmt.Println(fn)
 	nm, _ := strconv.Atoi(flag.Arg(0))
 
 	switch fn {
