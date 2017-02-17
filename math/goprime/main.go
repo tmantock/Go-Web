@@ -28,6 +28,7 @@ func main() {
 
 	fn := strings.ToUpper(cmd)
 	nm, _ := strconv.Atoi(flag.Arg(0))
+	sn, _ := strconv.Atoi(flag.Arg(1))
 
 	switch fn {
 	case "LIST":
@@ -43,6 +44,17 @@ func main() {
 	case "FACTORS":
 		result := primeFactors(nm)
 		fmt.Println(result)
+	case "FACTOROF":
+		if sn != 0 {
+			result := isPrimeOf(nm, sn)
+			if result == true {
+				fmt.Printf("%d is a prime factor of %d\n", sn, nm)
+			} else {
+				fmt.Printf("%d is not a prime factor of %d\n", sn, nm)
+			}
+		} else {
+			fmt.Println("Usage of -fn=factorof [number] [prime factor of]")
+		}
 	default:
 		fmt.Println("Invalid Command")
 		flag.Usage()
@@ -107,4 +119,15 @@ func primeFactors(num int) []int {
 	}
 
 	return factors
+}
+
+func isPrimeOf(t int, s int) bool {
+	primes := primesList(t)
+	for _, v := range primes {
+		if v == s {
+			return true
+		}
+	}
+
+	return false
 }

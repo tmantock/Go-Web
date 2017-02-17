@@ -14,6 +14,7 @@ A program all abut prime numbers
 - Prime - Tells if a number is prime
 - List - List all the Prime numbers from 0 to the number specified
 - Factors - Lists all the prime factors of a number
+- FactorOf - Determines if a number is a prime factor of another number (Ex: -fn=factorof (number) (prime number in question))
 
 ###Usage
 Go Build method
