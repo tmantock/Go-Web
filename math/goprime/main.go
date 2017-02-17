@@ -14,8 +14,8 @@ func main() {
 
 	flag.StringVar(&cmd, "fn", "prime", "Specify a function. Default is Prime. (Is number prime)")
 	flag.Usage = func() {
-		fmt.Printf("Usage of %s:\n", os.Args[0])
-		fmt.Printf("%s [number]\n", os.Args[0])
+		fmt.Printf("Usage of %s:\n", cmd)
+		fmt.Printf("Enter a number after -fn=%s. Ex: -fn=%s 2\n", cmd, cmd)
 		flag.PrintDefaults()
 	}
 
