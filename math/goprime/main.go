@@ -35,7 +35,11 @@ func main() {
 		fmt.Println(result)
 	case "PRIME":
 		result := isPrime(nm)
-		fmt.Println(result)
+		if result == true {
+			fmt.Println("This number is prime.")
+		} else {
+			fmt.Println("This number is not prime.")
+		}
 	case "FACTORS":
 		result := primeFactors(nm)
 		fmt.Println(result)
