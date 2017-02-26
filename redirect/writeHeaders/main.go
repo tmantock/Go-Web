@@ -1,4 +1,3 @@
- 38 lines (30 sloc) 845 Bytes
 package main
 
 import (
