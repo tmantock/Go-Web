@@ -20,7 +20,7 @@ func NewPostController() *PostController {
 	return &PostController{}
 }
 
-func (pc PostController) GetPosts() Posts {
+func GetPosts() Posts {
 	var p Posts
 	cwd, _ := os.Getwd()
 	files, _ := filepath.Glob(filepath.Join(cwd, "posts/*"))
