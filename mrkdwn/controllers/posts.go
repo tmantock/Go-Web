@@ -1,6 +1,7 @@
 package controllers
 
 import (
+	"html/template"
 	"os"
 	"path/filepath"
 
@@ -8,6 +9,8 @@ import (
 	"strings"
 
 	"time"
+
+	"net/http"
 
 	"github.com/russross/blackfriday"
 	"github.com/tmantock/Go-Web/mrkdwn/models"
@@ -18,6 +21,14 @@ type Posts []models.Post
 
 func NewPostController() *PostController {
 	return &PostController{}
+}
+
+func (pc PostController) PostRoute(w http.ResponseWriter, r *http.Response) {
+	cwd, _ := os.Getwd()
+	tpl, err := template.New("").Funcs(FM).ParseFiles(filepath.Join(cwd, "templates/post.gohtml"))
+	if err != nil {
+		panic(err)
+	}
 }
 
 func GetPosts() Posts {
