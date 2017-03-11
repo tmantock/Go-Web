@@ -6,7 +6,7 @@
     <body>
         <h1>Tevin's Blog</h1>
         {{ range . }}
-            <a href="/{{ .File }}"><h2> {{ .Title }} {{ .Date | fDate }}</h2></a>
+            <a href="posts/{{ .File }}"><h2> {{ .Title }} {{ .Date | fDate }}</h2></a>
             <p>{{ .Summary }}</p>
         {{end}}
     </body>

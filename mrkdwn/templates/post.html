@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Markdown Blog</title>
+    </head>
+    <body>
+        <h1>Tevin's Blog</h1>
+        <a href="posts/{{ .File }}"><h2> {{ .Title }} ({{ .Date | fDate }})</h2></a>
+        {{ .Body }}
+    </body>
+</html>
