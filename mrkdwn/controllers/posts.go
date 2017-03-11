@@ -12,8 +12,6 @@ import (
 
 	"net/http"
 
-	"fmt"
-
 	"github.com/russross/blackfriday"
 	"github.com/tmantock/Go-Web/mrkdwn/models"
 )
@@ -72,7 +70,6 @@ func GetPosts() Posts {
 	for _, f := range files {
 		file := strings.Replace(f, cwd+"/posts/", "", -1)
 		file = strings.Replace(file, ".md", "", -1)
-		fmt.Println(file)
 		fileread, _ := ioutil.ReadFile(f)
 		lines := strings.Split(string(fileread), "\n")
 		title := string(lines[0])
