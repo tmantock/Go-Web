@@ -27,14 +27,14 @@ func (pc PostController) PostRoute(w http.ResponseWriter, r *http.Request) {
 	spl := strings.Split(r.URL.Path, "/")
 	f := spl[2]
 	cwd, _ := os.Getwd()
-	tpl, err := template.New("").Funcs(FM).ParseFiles(filepath.Join(cwd, "templates/post.gohtml"))
+	tpl, err := template.New("").Funcs(FM).ParseFiles(filepath.Join(cwd, "./templates/index.gohtml"))
 	if err != nil {
 		panic(err)
 	}
 
 	p := renderPost(f)
 
-	tpl.ExecuteTemplate(w, "post.gohtml", p)
+	tpl.ExecuteTemplate(w, "index.gohtml", p)
 }
 
 func renderPost(fn string) models.Post {

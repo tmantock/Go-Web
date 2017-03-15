@@ -2,12 +2,11 @@
 <html>
     <head>
         <title>Markdown</title>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/paper/bootstrap.min.css" rel="stylesheet" type="text/css">
     </head>
     <body>
         <h1>Tevin's Blog</h1>
-        {{ range . }}
-            <a href="posts/{{ .File }}"><h2> {{ .Title }} {{ .Date | fDate }}</h2></a>
-            <p>{{ .Summary }}</p>
-        {{end}}
+        <div>{{ template "lists" }}</div>
+        <div>{{ template "post"}}</div>
     </body>
 </html>
