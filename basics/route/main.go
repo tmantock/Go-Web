@@ -6,6 +6,7 @@ import (
 	"encoding/json"
 
 	"github.com/gorilla/mux"
+	"github.com/rs/cors"
 )
 
 type name struct {
@@ -16,7 +17,8 @@ type name struct {
 func main() {
 	r := mux.NewRouter()
 	r.HandleFunc("/names", getNames)
-	http.ListenAndServe(":8080", r)
+	handler := cors.Default().Handler(r)
+	http.ListenAndServe(":8080", handler)
 }
 
 func getNames(w http.ResponseWriter, r *http.Request) {
