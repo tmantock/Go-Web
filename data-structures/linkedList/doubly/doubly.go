@@ -1,9 +1,10 @@
-package singly
+package doubly
 
 import "fmt"
 
 type Node struct {
 	data int
+	prev *Node
 	next *Node
 }
 
@@ -13,38 +14,27 @@ type List struct {
 }
 
 func (l *List) Append(data int) {
-	node := &Node{
+	n := &Node{
 		data: data,
+		prev: nil,
 		next: nil,
 	}
+
 	if l.head == nil {
-		l.head = node
+		l.head = n
 		return
 	}
 
 	if l.tail == nil {
-		l.head.next = node
-		l.tail = node
+		l.tail = n
+		l.head.next = l.tail
+		l.tail.prev = l.head
 		return
 	}
 
-	l.tail.next = node
-	l.tail = node
-}
-
-func (l *List) Prepend(data int) {
-	node := &Node{
-		data: data,
-		next: nil,
-	}
-
-	if l.head == nil {
-		l.head = node
-		return
-	}
-
-	node.next = l.head
-	l.head = node
+	l.tail.next = n
+	n.prev = l.tail
+	l.tail = n
 }
 
 func (l List) Traverse() {
