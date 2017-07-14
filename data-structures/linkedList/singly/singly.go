@@ -47,7 +47,7 @@ func (l *List) Prepend(data int) {
 	l.head = node
 }
 
-func (l List) Traverse() {
+func (l *List) Traverse() {
 	if l.head == nil {
 		return
 	}
